@@ -1,0 +1,175 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 25px;
+  background-color: #d55d46;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%
+  }
+  50% {
+    background-position: 100% 50%
+  }
+  100% {
+    background-position: 0% 50%
+  }
+}
+
+h2 {
+  text-align: center;
+}
+
+.eye {
+  margin-top: 50px;
+  margin-left: 50px;
+  position: relative;
+  display: inline-block;
+  width: 10em;
+  height: 10em;
+  color: transparent;
+  border-style: solid;
+  
+}
+
+
+/* Eye modifiers */
+
+.eye--weird {
+  transform: rotate(90deg);
+}
+
+.eye--small {
+  width: 6em;
+  height: 6em;
+}
+
+.eye--tiny {
+  width: 4em;
+  height: 4em;
+}
+
+
+/* Pseudoelements */
+
+.eye:before,
+.eye:after {
+  position: absolute;
+  content: '';
+  display: block;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+}
+
+
+/* Eye Shape */
+
+.eye:before {
+  top: 10%;
+  left: 10%;
+  background-color: #fff;
+  width: 80%;
+  height: 80%;
+  border-radius: 0 80% 0 80%;
+  transform: rotate(-45deg);
+  opacity: 1;
+}
+
+
+/* Pupil */
+
+.eye:after {
+  border-style: solid;
+  border-width: 1em;
+  border-color: green;
+  width: 40%;
+  height: 40%;
+  margin-left: -20%;
+  margin-top: -20%;
+  border-radius: 100%;
+  opacity: 1;
+  background-color: black;
+}
+
+
+/* Pupil Modifiers */
+
+.eye--tiny:after {
+  border-width: 0.3em;
+}
+
+.eye--small:after {
+  border-width: 0.5em;
+}
+
+.eye--yellow:after {
+  border-color: yellow;
+}
+
+.eye--blue:after {
+  border-color: blue;
+}
+
+
+/* Lid */
+
+.lid {
+  position: absolute;
+  top: 0;
+  left: -10%;
+  height: 0;
+  width: 120%;
+  background-color: #d55d46;
+  z-index: 1;
+}
+
+.lid--1 {
+  animation: blinky 4000ms ease infinite;
+}
+
+.lid--2 {
+  animation: blinky 4000ms ease 2s infinite;
+}
+
+.lid--3 {
+  animation: blinky 4000ms ease 800ms infinite;
+}
+
+.lid--4 {
+  animation: blinky 4000ms ease 200ms infinite;
+}
+
+.lid--5 {
+  animation: blinky 4000ms ease 1200ms infinite;
+}
+
+.lid--6 {
+  animation: blinky 6000ms ease 100ms infinite;
+}
+
+@keyframes blinky {
+  0%,
+  10%,
+  90%,
+  100% {
+    height: 0;
+  }
+  15%,
+  85% {
+    height: 100%;
+  }
+}
+
+
+/* Utility */
+
+.eye {
+  display: inline-block;
+  margin-top: 10%;
+}
